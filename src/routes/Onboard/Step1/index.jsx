@@ -2,32 +2,40 @@ import React from 'react'
 
 function Step1({values,setValues}) {
     return (
-        <div className='Step1'>
+        <div className='Step'>
             
-            <div className='Step1_Heading'>
+            <div className='Step_Heading'>
                 Welcome! First things first...
             </div>
-            <div className='Step1__Subheading'>
+            <div className='Step_Subheading'>
                 You can always change them later.
             </div>
 
-            <div className='InputLabel'>
-                Full Name
+            <div className='Step_Form'>
+                <div className='Step_Label'>
+                    Full Name
+                </div>
+                <input 
+                    className='Step_Input'
+                    name="fullName"
+                    placeholder='Steve Jobs'
+                    value={values?.fullName}
+                    onChange={setValues}
+                />
+                
+                <div className='Step_Label'>
+                    Display Name
+                </div>
+                <input 
+                    className='Step_Input'
+                    name="displayName"
+                    placeholder='Steve'
+                    value={values?.displayName}
+                    onChange={setValues}
+                />
             </div>
-            <input 
-                name="fullName"
-                value={values?.fullName}
-                onChange={setValues}
-            />
+
             
-            <div className='InputLabel'>
-                Display Name
-            </div>
-            <input 
-                name="displayName"
-                value={values?.displayName}
-                onChange={setValues}
-            />
             
         </div>
     )
