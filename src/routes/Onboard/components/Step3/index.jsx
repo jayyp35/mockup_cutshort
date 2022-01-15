@@ -30,6 +30,7 @@ function Step3({usageType,setUsageType}) {
                             height="25px"
                             width="25px"
                             style={{padding:"5px"}}
+                            alt="single"
                         />
                         For Myself
                         <div className='Step_Choice_Box_Subtext'>
@@ -48,6 +49,7 @@ function Step3({usageType,setUsageType}) {
                             src={usageType === 2 ? multi2 : multi1}
                             height="25px"
                             width="25px"
+                            alt="multiple"
                         />
                         With My Team
                         <div className='Step_Choice_Box_Subtext'>

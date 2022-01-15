@@ -1,6 +1,6 @@
 import React from 'react'
 
-function Step4() {
+function Step4({values}) {
     return (
         <div className='Step'>
 
@@ -11,7 +11,7 @@ function Step4() {
 
 
             <div className='Step_Heading'>
-                Congratulations, Eren!
+                Congratulations, {values?.displayName}!
             </div>
             <div className='Step_Subheading'>
                 You have completed onboarding, you can start using Eden!

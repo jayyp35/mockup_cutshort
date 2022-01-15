@@ -1,6 +1,6 @@
 export const validateFields = (values,step,setErrors) => {
     switch(step) {
-        case 1 : {
+        case 1 : 
             if(values?.fullName?.length && values?.displayName?.length) {
                 return true;
             } else {
@@ -12,16 +12,18 @@ export const validateFields = (values,step,setErrors) => {
                     setErrors("fullNameError",true)
                 }
                 return false;   
-            }    
-        }
-        case 2 : {
+            } 
+        case 2 : 
             if(values?.workspaceName?.length) {
                 return true;
             } else {
                 if(!values?.workspaceName?.length) {
                     setErrors("workspaceNameError",true)
+                    return false;
                 }
             }
-        }
+            break;
+        default: 
+        return false;
     }
 }

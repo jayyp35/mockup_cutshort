@@ -1,4 +1,4 @@
-import React,{useState,useEffect} from 'react'
+import React,{useState} from 'react'
 import { useForm } from '../../utils/useForm'
 import {validateFields} from '../../utils/validation'
 import '../../scss/Onboard/Onboard.scss'
@@ -20,14 +20,6 @@ function Onboard() {
         workspaceUrl : "",
     })
     const [usageType,setUsageType] = useState()
-
-    useEffect(()=>{
-        console.log("valuesChanged",values);
-    },[values])
-
-    useEffect(()=>{
-        console.log("stepchanged",step)
-    },[step])
 
     const handleButtonClick = () => {
         if(step < 3) {
@@ -56,7 +48,7 @@ function Onboard() {
     return (
         <div className='Onboard'>
             <div className='Onboard_Heading'>
-                <img src={leaf} height="40px" width="40px" style={{marginRight:"10px"}}/>
+                <img src={leaf} height="40px" width="40px" style={{marginRight:"10px"}} alt="logo"/>
                 Eden
             </div>
 
@@ -68,7 +60,8 @@ function Onboard() {
                 className='Onboard_Button'
                 onClick={handleButtonClick}
             >
-                Create Workspace
+                {step !== 4 ? "Create Workspace" : "Launch Eden"}
+                
             </div>
         </div>
     )

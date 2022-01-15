@@ -2,9 +2,9 @@ import React,{useState,useEffect} from 'react'
 
 function Progress(props) {
 
-    const { step, setStep } = props;
+    const { step } = props;
     const [progressWidth,setProgressWith] = useState(0)
-    const [stepsArray,setStepsArray] = useState([0,0,0,0])
+    const stepsArray = [0,0,0,0];
 
     useEffect(() => {
         if(step) {
@@ -14,6 +14,7 @@ function Progress(props) {
                     case 2 : return 50
                     case 3 : return 80
                     case 4 : return 100
+                    default: return 0
                 }
             })
         }
@@ -29,7 +30,10 @@ function Progress(props) {
                 <div className='Progress_Bar_Container'>
 
                     {stepsArray.map((s,index) => (
-                           <div className={`Progress_Bar_Box ${(index  < step) ? "fill" : ""}`} key={index}>
+                            <div 
+                                className={`Progress_Bar_Box ${(index  < step) ? "fill" : ""}`} 
+                                key={index}
+                            >
                             {index + 1}
                             </div> 
                         )
@@ -37,7 +41,6 @@ function Progress(props) {
 
                 </div>
                 
-
             </div>
         </div>
     )
