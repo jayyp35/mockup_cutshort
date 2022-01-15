@@ -1,6 +1,7 @@
-import React from 'react'
+import React,{useState} from 'react'
 
 function Step1({values,setValues}) {
+
     return (
         <div className='Step'>
             
@@ -16,7 +17,7 @@ function Step1({values,setValues}) {
                     Full Name
                 </div>
                 <input 
-                    className='Step_Input'
+                    className={`Step_Input ${values?.fullNameError ? "error" : ""}`}
                     name="fullName"
                     placeholder='Steve Jobs'
                     value={values?.fullName}
@@ -27,7 +28,7 @@ function Step1({values,setValues}) {
                     Display Name
                 </div>
                 <input 
-                    className='Step_Input'
+                    className={`Step_Input ${values?.displayNameError ? "error" : ""}`}
                     name="displayName"
                     placeholder='Steve'
                     value={values?.displayName}

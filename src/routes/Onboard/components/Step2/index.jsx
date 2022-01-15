@@ -1,5 +1,4 @@
 import React from 'react'
-import '../../../scss/Onboard/Step1.scss'
 
 function Step2({values,setValues}) {
     return (
@@ -17,8 +16,8 @@ function Step2({values,setValues}) {
                     Workspace Name
                 </div>
                 <input 
-                    className='Step_Input'
-                    name="fullName"
+                    className={`Step_Input ${values?.workspaceNameError ? "error" : ""}`}
+                    name="workspaceName"
                     placeholder='Eden'
                     value={values?.workspaceName}
                     onChange={setValues}
@@ -33,7 +32,7 @@ function Step2({values,setValues}) {
                     </div>
                     <input 
                         className='Step_CustomInput_Input Step_Input'
-                        name="displayName"
+                        name="workspaceUrl"
                         placeholder='Example'
                         value={values?.workspaceUrl}
                         onChange={setValues}
