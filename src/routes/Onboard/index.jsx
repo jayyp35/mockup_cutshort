@@ -1,4 +1,4 @@
-import React,{useState} from 'react'
+import React,{useEffect, useState} from 'react'
 import { useForm } from '../../utils/useForm'
 import {validateFields} from '../../utils/validation'
 import '../../scss/Onboard/Onboard.scss'
@@ -9,6 +9,7 @@ import Step1 from './components/Step1'
 import Step2 from './components/Step2'
 import Step3 from './components/Step3'
 import Step4 from './components/Step4'
+import Loader from '../../UI/Loader/Loader'
 
 function Onboard() {
 
@@ -20,6 +21,13 @@ function Onboard() {
         workspaceUrl : "",
     })
     const [usageType,setUsageType] = useState()
+    const [loading,setLoading] = useState(true)
+
+    useEffect(() => {
+        setTimeout(() => {
+            setLoading(false)
+        }, 2000);
+    },[])
 
     const handleButtonClick = () => {
         if(step < 3) {
@@ -52,17 +60,29 @@ function Onboard() {
                 Eden
             </div>
 
-            <Progress step={step} setStep={setStep}/>
+            { loading 
+                ? 
+                    <>
+                        <Loader/> 
+                        {/* Loading... */}
+                    </>
+                    
+                :  
+                    <>
+                        <Progress step={step} setStep={setStep}/>
 
-            {getForm()}
+                        {getForm()}
 
-            <div 
-                className='Onboard_Button'
-                onClick={handleButtonClick}
-            >
-                {step !== 4 ? "Create Workspace" : "Launch Eden"}
-                
-            </div>
+                        <div 
+                            className='Onboard_Button'
+                            onClick={handleButtonClick}
+                        >
+                            {step !== 4 ? "Create Workspace" : "Launch Eden"}
+                            
+                        </div>
+                    </>
+            }
+            
         </div>
     )
 }

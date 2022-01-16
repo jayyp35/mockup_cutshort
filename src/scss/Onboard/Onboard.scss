@@ -198,6 +198,12 @@
   }
 }
 
+@media only screen and (max-width: 500px) {
+  .Onboard {
+    width: 100%;
+  }
+}
+
 .checkmark__circle {
   stroke-dasharray: 166;
   stroke-dashoffset: 166;
