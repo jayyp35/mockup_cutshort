@@ -64,7 +64,6 @@ function Onboard() {
                 ? 
                     <>
                         <Loader/> 
-                        {/* Loading... */}
                     </>
                     
                 :  
